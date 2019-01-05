@@ -2,10 +2,14 @@
 <template>
   <div
     class="nav">
-    <div
-      class="leftContainer">
-      D1n910的博客
-    </div>
+    <router-link
+      to="/index">
+      <div
+        class="leftContainer">
+        <!-- D1n910的博客 -->
+        <img src="http://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客">
+      </div>
+    </router-link>
     <nav>
       <router-link
         v-for="(item, index) in navUrl"
@@ -92,6 +96,15 @@ export default {
     padding: 0 30px;
     display: flex;
     justify-content: space-between;
+    a {
+      text-decoration: none;
+    }
+    .leftContainer {
+      color: #6b2ad9;
+      img {
+        width: 100px;
+      }
+    }
     nav {
       display: flex;
       a {
