@@ -26,7 +26,7 @@
 </template>
 
 <script>
-const defaultRoute = ['index', 'page', 'notFCanSay', 'doneByMySelf', 'aboutMe']
+const defaultRoute = ['index', 'page', 'notFCanSay', 'doneByMySelf', 'meyFriend', 'aboutMe']
 
 export default {
   name: 'blog-nav',
@@ -52,7 +52,11 @@ export default {
           path: '/doneByMySelf'
         },
         {
-          name: '关于我',
+          name: '友链',
+          path: '/meyFriend'
+        },
+        {
+          name: '关于',
           path: '/aboutMe'
         }
       ]
@@ -90,17 +94,24 @@ export default {
 
 <style lang="less" rel="stylesheet/less" scoped>
   .nav {
-    height: 44px;
+    height: 88px;
     font-size: 22px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+    background-color: #fff;
     a {
       text-decoration: none;
     }
     .leftContainer {
       color: #6b2ad9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       img {
         width: 100px;
       }
@@ -116,8 +127,7 @@ export default {
         cursor: pointer;
         color: rgba(0, 0, 0, 0.87);
         &:hover {
-          font-weight: 500;
-          color: #d56569;
+          color: #6b2ad9;
         }
       }
       .actived {

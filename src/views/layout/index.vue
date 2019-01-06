@@ -2,6 +2,7 @@
 <template>
   <div
     class="layout">
+    <!-- 导航 -->
     <BlogNav
       :routeName="$route"/>
     <div
@@ -22,11 +23,15 @@
       </transition>
 
     </div>
+
+    <!-- 页脚 -->
+    <BlogFooter />
   </div>
 </template>
 
 <script>
 import BlogNav from './_components/nav'
+import BlogFooter from './_components/footer'
 
 export default {
   name: 'layout',
@@ -39,7 +44,8 @@ export default {
   },
 
   components: {
-    BlogNav
+    BlogNav,
+    BlogFooter
   },
 
   methods: {
@@ -57,5 +63,6 @@ export default {
   }
   .layout-content{
     width: 100%;
+    min-height: calc(100vh - 178px);
   }
 </style>
