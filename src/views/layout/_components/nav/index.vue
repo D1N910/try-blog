@@ -26,7 +26,7 @@
 </template>
 
 <script>
-const defaultRoute = ['index', 'page', 'notFCanSay', 'doneByMySelf', 'meyFriend', 'aboutMe']
+const defaultRoute = ['index', 'article', 'design', 'notFCanSay', 'doneByMySelf', 'meyFriend', 'aboutMe']
 
 export default {
   name: 'blog-nav',
@@ -41,7 +41,11 @@ export default {
         },
         {
           name: '文章',
-          path: '/page'
+          path: '/article'
+        },
+        {
+          name: '设计',
+          path: '/design'
         },
         {
           name: '无F可说',
@@ -78,15 +82,11 @@ export default {
 
   created () {
     this.activeIndex = defaultRoute.indexOf(this.routeName.name)
-    console.log(this.activeIndex)
-    console.log(this.routeName)
   },
 
   watch: {
     routeName () {
-      console.log(this.routeName.name)
       this.activeIndex = defaultRoute.indexOf(this.routeName.name)
-      console.log(this.activeIndex)
     }
   }
 }
