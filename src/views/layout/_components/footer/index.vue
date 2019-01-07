@@ -40,6 +40,7 @@ export default {
   background-color: #fff;
   position: relative;
   z-index: 999;
+  font-size: 14px;
   a {
     text-decoration: none;
     color: #6b2ad9;

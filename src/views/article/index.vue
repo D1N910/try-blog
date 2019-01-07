@@ -9,30 +9,37 @@
     <ul
       class="list header">
       <li
-        v-for="(item, index) in 0"
+        v-for="(item, index) in articleList"
         :key="index">
-        <div class="list-item prose">
+        <div :class="['lisItem', item.show ? 'lisItemShow' : '']">
+          <!-- 文章标题 -->
             <h3>
-              <a href="/google-congress-hearing">#76 国会又在问硅谷巨头蠢问题了！但也许没我们想象得那么蠢？</a>
+              {{item.title}}
             </h3>
+            <!-- 其他信息 -->
             <h6>
               <span>
-                  <i class="fas fa-podcast"></i> Episode &nbsp;|&nbsp;
-                <i class="far fa-calendar-alt"></i> December 21st, 2018
+                <i class="blogPodcast"></i> Episode &nbsp;|&nbsp;
+                <i class="blogCalendarAlt"></i> December 21st, 2018
                 &nbsp;|&nbsp;
                 <i class="far fa-clock"></i> 49 mins 49 secs
               </span>
             </h6>
-              <h6>
-                <span>
-                  <i class="fas fa-tag"></i> culture, politics, tech
-                </span>
-              </h6>
+            <!-- 标签 -->
+            <h6>
+              <span>
+                <i class="blogTag"></i> 前端
+              </span>
+            </h6>
 
           </div>
       </li>
     </ul>
 
+    <div
+      class="nothing">
+      没有更多
+    </div>
     <!-- 背景图 -->
     <BackgroundImg
       imgUrl="http://ppe.oss-cn-shenzhen.aliyuncs.com/collections/129/9/thumb.jpg"/>
@@ -42,6 +49,7 @@
 
 <script>
 import BackgroundImg from '@/components/backgroundImg.vue'
+import { apiGet } from '@/utils'
 
 export default {
 
@@ -49,6 +57,7 @@ export default {
 
   data () {
     return {
+      articleList: []
     }
   },
 
@@ -57,6 +66,20 @@ export default {
   },
 
   methods: {
+  },
+
+  mounted () {
+    apiGet('articleList').then(res => {
+      if (res.statusCode === 200) {
+        this.articleList = res.content
+        for (let i in this.articleList) {
+          setTimeout(() => {
+            this.articleList[i].show = true
+            this.$set(this.articleList, i, this.articleList[i])
+          }, i * 100)
+        }
+      }
+    })
   }
 }
 </script>
@@ -67,9 +90,9 @@ export default {
     z-index: 2;
     color: #000;
     text-shadow: 0 0.0625em 0.5em rgba(255, 255, 255,0.25);
-    height: 300px;
+    height: 200px;
     text-align: center;
-    line-height: 300px;
+    line-height: 200px;
     font-size: 72px;
     font-weight: 500;
   }
@@ -80,5 +103,42 @@ export default {
     li:nth-child(2n){
       background-color: #f7f7f7;
     }
+    .lisItem {
+      padding: 32px 16px 24px;
+      margin: 0 auto;
+      max-width: 1056px;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      h3 {
+        margin: 0 0 16px;
+        a {
+          color: #a282d9;
+          &:hover {
+            color: #6b2ad9;
+          }
+        }
+      }
+      h6 {
+        color: #808080;
+        font-weight: 600;
+        line-height: 2;
+        margin: 2px 0 0;
+      }
+    }
+    .lisItemShow {
+      height: 92px;
+      opacity: 1;
+    }
+  }
+  .nothing {
+    position: relative;
+    z-index: 2;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+    box-shadow:inset 0 1px rgba(0,0,0,0.05),0 8px 16px rgba(0,0,0,0.05);
   }
 </style>
