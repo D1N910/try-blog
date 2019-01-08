@@ -15,11 +15,12 @@
           <div
             class="info">
             <div class="infoTime">{{articile.date}}</div>
-            <div class="infoWatch">666阅读</div>
+            <div class="infoWatch">{{articile.watch}}阅读</div>
           </div>
         </div>
       </div>
       <div
+        class="articleHolder unable-reprint"
         v-html="articile.pageContent"></div>
     </div>
   </div>
@@ -74,12 +75,10 @@ export default {
   mounted () {
     apiGet('singleArtile', this.$route.params).then(res => {
       if (res.statusCode === 200) {
-        res.content.forEach(element => {
-          const thisData = element.date
-          const d = new Date(thisData)
-          element.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
-        })
-        this.articile = res.content[0]
+        const thisData = res.content.date
+        const d = new Date(thisData)
+        res.content.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+        this.articile = res.content
         this.articile.pageContent = marked(this.articile.pageContent || '', {
           sanitize: true
         })
@@ -94,7 +93,6 @@ export default {
     background-color: #fff;
     .pageContainer {
       width: 660px;
-      padding-right: 200px;
       overflow-x: initial;
       position: relative;
       max-width: 860px;
@@ -128,6 +126,12 @@ export default {
           margin: 0 8px 0 0;
         }
       }
+    }
+    .articleHolder {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #222;
+      padding-bottom: 50px;
     }
   }
 </style>

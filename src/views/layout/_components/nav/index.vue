@@ -1,4 +1,4 @@
-<!-- 页脚 -->
+<!-- 头部 -->
 <template>
   <div
     class="nav">
@@ -7,7 +7,7 @@
       <div
         class="leftContainer">
         <!-- D1n910的博客 -->
-        <img src="http://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客">
+        <img src="https://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客">
       </div>
     </router-link>
     <nav>

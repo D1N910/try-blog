@@ -30,7 +30,7 @@
             <!-- 标签 -->
             <h6>
               <span>
-                <i class="blogTag"></i> 前端
+                <i class="blogTag"></i> {{item.datetime}}
               </span>
             </h6>
 
@@ -44,7 +44,7 @@
     </div>
     <!-- 背景图 -->
     <BackgroundImg
-      imgUrl="http://ppe.oss-cn-shenzhen.aliyuncs.com/collections/129/9/thumb.jpg"/>
+      imgUrl="https://ww1.sinaimg.cn/large/006ES7aSgy1fyz75ek2mtj30qo0zkn7s.jpg"/>
 
   </div>
 </template>
@@ -59,7 +59,12 @@ export default {
 
   data () {
     return {
-      articleList: []
+      articleList: [],
+      getListData: {
+        offset: 0,
+        limit: 3
+      },
+      haveFull: false
     }
   },
 
@@ -71,12 +76,15 @@ export default {
   },
 
   mounted () {
-    apiGet('articleList').then(res => {
+    if (this.haveFull) {
+      return false
+    }
+    apiGet('articleList', this.getListData).then(res => {
       if (res.statusCode === 200) {
         res.content.forEach(element => {
-          const thisData = element.data
+          const thisData = element.date
           const d = new Date(thisData)
-          element.data = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+          element.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
         })
         this.articleList = res.content
         for (let i in this.articleList) {
@@ -84,6 +92,10 @@ export default {
             this.articleList[i].show = true
             this.$set(this.articleList, i, this.articleList[i])
           }, i * 100)
+        }
+        this.getListData.offset += this.getListData.limit
+        if (res.content.length < this.getListData.limit) {
+          this.haveFull = true
         }
       }
     })
@@ -117,7 +129,7 @@ export default {
       opacity: 0;
       height: 0;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.15s ease;
       h3 {
         margin: 0 0 16px;
         a {

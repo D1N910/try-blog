@@ -39,7 +39,6 @@ let router = new Router({
     },
     {
       path: '/',
-      name: 'index',
       component: Layout,
       children: [{
         path: '/index',

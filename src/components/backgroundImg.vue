@@ -13,7 +13,7 @@ export default {
     imgUrl: {
       type: String,
       default () {
-        return 'http://ppe.oss-cn-shenzhen.aliyuncs.com/collections/128/1/thumb.jpg'
+        return 'https://ws1.sinaimg.cn/large/006ES7aSgy1fyz78nng15j30zk0jkdma.jpg'
       }
     }
   }
