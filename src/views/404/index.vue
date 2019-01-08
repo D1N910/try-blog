@@ -13,6 +13,8 @@
       class="slogan">
       这里可能曾有很多东西，不过现在荒芜一物
     </div>
+
+    <a class="c6b2ad9 comeBack" @click="comeBack">返回</a>
   </div>
 </template>
 
@@ -31,6 +33,9 @@ export default {
   },
 
   methods: {
+    comeBack () {
+      this.$router.go(-1)
+    }
   }
 }
 </script>
@@ -38,15 +43,18 @@ export default {
 <style lang="less" rel="stylesheet/less" scoped>
   .notFound {
     text-align: center;
-    padding: 100px 0;
     .title {
       font-size: 24px;
-      padding: 16px 0;
+      padding: 42px 0;
       font-weight: 500;
     }
     .slogan {
       color: rgba(0, 0, 0, 0.5);
       padding: 16px 0;
+    }
+    .comeBack {
+      cursor: pointer;
+      font-weight: 500;
     }
   }
   .notFound-img {

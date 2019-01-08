@@ -63,6 +63,6 @@ export default {
   }
   .layout-content{
     width: 100%;
-    min-height: calc(100vh - 178px);
+    min-height: calc(100vh - 132px);
   }
 </style>

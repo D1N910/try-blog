@@ -94,7 +94,7 @@ export default {
 
 <style lang="less" rel="stylesheet/less" scoped>
   .nav {
-    height: 88px;
+    height: 42px;
     font-size: 22px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0 30px;
@@ -104,6 +104,7 @@ export default {
     position: relative;
     z-index: 999;
     background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
     a {
       text-decoration: none;
     }

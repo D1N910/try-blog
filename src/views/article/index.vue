@@ -13,16 +13,18 @@
         :key="index">
         <div :class="['lisItem', item.show ? 'lisItemShow' : '']">
           <!-- 文章标题 -->
-            <h3>
-              {{item.title}}
-            </h3>
+              <h3>
+                <router-link :to="`singleArticle/${item.id}`">
+                  {{item.title}}
+                </router-link>
+              </h3>
             <!-- 其他信息 -->
             <h6>
               <span>
-                <i class="blogPodcast"></i> Episode &nbsp;|&nbsp;
-                <i class="blogCalendarAlt"></i> December 21st, 2018
+                <i class="blogPodcast"></i> {{item.type}} &nbsp;|&nbsp;
+                <i class="blogCalendarAlt"></i> {{item.date}}
                 &nbsp;|&nbsp;
-                <i class="far fa-clock"></i> 49 mins 49 secs
+                <i class="far fa-clock"></i> {{item.datetime}}
               </span>
             </h6>
             <!-- 标签 -->
@@ -71,6 +73,11 @@ export default {
   mounted () {
     apiGet('articleList').then(res => {
       if (res.statusCode === 200) {
+        res.content.forEach(element => {
+          const thisData = element.data
+          const d = new Date(thisData)
+          element.data = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+        })
         this.articleList = res.content
         for (let i in this.articleList) {
           setTimeout(() => {

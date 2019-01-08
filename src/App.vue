@@ -6,7 +6,7 @@
 
 <style lang="less">
   .blogPage {
-    min-height: calc(100vh - 178px);
+    min-height: calc(100vh - 132px);
     background-color: #ededed;
   }
   .c6b2ad9 {
