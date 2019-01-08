@@ -3,6 +3,7 @@
   <div
     class="blogPage Article">
     <div
+      v-if="!loading"
       class="pageContainer">
       <div
         class="headContainer">
@@ -23,11 +24,16 @@
         class="articleHolder unable-reprint"
         v-html="articile.pageContent"></div>
     </div>
+
+    <Loading
+      v-if="loading"
+      />
   </div>
 </template>
 
 <script>
 import { apiGet } from '@/utils'
+import Loading from '@/components/loading'
 
 let marked = require('marked')
 let hljs = require('highlight.js')
@@ -59,11 +65,13 @@ export default {
 
   data () {
     return {
-      articile: { ...defaultArticle }
+      articile: { ...defaultArticle },
+      loading: true
     }
   },
 
   components: {
+    Loading
   },
 
   computed: {
@@ -83,6 +91,8 @@ export default {
           sanitize: true
         })
       }
+    }).then(() => {
+      this.loading = false
     })
   }
 }

@@ -9,8 +9,8 @@
     <ul
       class="list header">
       <li
-        v-for="(item, index) in articleList"
-        :key="index">
+        v-for="item in articleList"
+        :key="item.id">
         <div :class="['lisItem', item.show ? 'lisItemShow' : '']">
           <!-- 文章标题 -->
               <h3>
@@ -21,7 +21,7 @@
             <!-- 其他信息 -->
             <h6>
               <span>
-                <i class="blogPodcast"></i> {{item.type}} &nbsp;|&nbsp;
+                <i class="blogPodcast"></i> {{item.anthor}} &nbsp;|&nbsp;
                 <i class="blogCalendarAlt"></i> {{item.date}}
                 &nbsp;|&nbsp;
                 <i class="far fa-clock"></i> {{item.datetime}}
@@ -30,7 +30,7 @@
             <!-- 标签 -->
             <h6>
               <span>
-                <i class="blogTag"></i> {{item.datetime}}
+                <i class="blogTag"></i> {{item.type}}
               </span>
             </h6>
 
@@ -39,6 +39,14 @@
     </ul>
 
     <div
+      v-if="!haveFull"
+      @click="get()"
+      class="nothing addMore">
+      加载更多
+    </div>
+
+    <div
+      v-if="haveFull"
       class="nothing">
       没有更多
     </div>
@@ -64,7 +72,8 @@ export default {
         offset: 0,
         limit: 3
       },
-      haveFull: false
+      haveFull: false,
+      lock: false
     }
   },
 
@@ -73,32 +82,45 @@ export default {
   },
 
   methods: {
+    get () {
+      if (this.lock) {
+        return false
+      }
+      this.lock = true
+      if (this.haveFull) {
+        return false
+      }
+      apiGet('articleList', this.getListData).then(res => {
+        if (res.statusCode === 200) {
+          const oldLength = parseInt(this.articleList.length)
+          res.content.forEach(element => {
+            const thisData = element.date
+            const d = new Date(thisData)
+            element.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
+          })
+          this.articleList.push(...res.content)
+          for (let i in res.content) {
+            i = parseInt(i)
+            setTimeout(() => {
+              console.log(this.articleList)
+              console.log(parseInt(oldLength + i))
+              this.articleList[parseInt(oldLength + i)].show = true
+              this.$set(this.articleList, parseInt(oldLength + i), this.articleList[parseInt(oldLength + i)])
+            }, i * 100)
+          }
+          this.getListData.offset += this.getListData.limit
+          if (res.content.length < this.getListData.limit) {
+            this.haveFull = true
+          }
+        }
+      }).then(() => {
+        this.lock = false
+      })
+    }
   },
 
   mounted () {
-    if (this.haveFull) {
-      return false
-    }
-    apiGet('articleList', this.getListData).then(res => {
-      if (res.statusCode === 200) {
-        res.content.forEach(element => {
-          const thisData = element.date
-          const d = new Date(thisData)
-          element.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
-        })
-        this.articleList = res.content
-        for (let i in this.articleList) {
-          setTimeout(() => {
-            this.articleList[i].show = true
-            this.$set(this.articleList, i, this.articleList[i])
-          }, i * 100)
-        }
-        this.getListData.offset += this.getListData.limit
-        if (res.content.length < this.getListData.limit) {
-          this.haveFull = true
-        }
-      }
-    })
+    this.get()
   }
 }
 </script>
@@ -159,5 +181,13 @@ export default {
     font-weight: 400;
     color: #fff;
     box-shadow:inset 0 1px rgba(0,0,0,0.05),0 8px 16px rgba(0,0,0,0.05);
+  }
+  .addMore {
+    color: #a282d9;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    &:hover {
+      color: #6b2ad9;
+    }
   }
 </style>
