@@ -5,6 +5,8 @@
     <!-- 导航 -->
     <BlogNav
       :routeName="$route"/>
+    <!-- 欢迎 -->
+    <Welcome />
     <div
       class="layout-content">
 
@@ -33,6 +35,8 @@
 import BlogNav from './_components/nav'
 import BlogFooter from './_components/footer'
 
+import Welcome from './_components/welcome'
+
 export default {
   name: 'layout',
 
@@ -45,7 +49,8 @@ export default {
 
   components: {
     BlogNav,
-    BlogFooter
+    BlogFooter,
+    Welcome
   },
 
   methods: {

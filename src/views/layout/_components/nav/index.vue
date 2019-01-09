@@ -57,7 +57,7 @@
 </template>
 
 <script>
-const defaultRoute = ['index', 'article', 'doneByMySelf', 'meyFriend', 'aboutMe']
+const defaultRoute = ['index', 'article', 'doneByMySelf', 'myFriend', 'aboutMe']
 
 export default {
   name: 'blog-nav',
@@ -92,7 +92,7 @@ export default {
         },
         {
           name: '友链',
-          path: '/meyFriend',
+          path: '/myFriend',
           icon: 'icon-cloud-link'
         },
         {

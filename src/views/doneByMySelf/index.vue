@@ -4,6 +4,7 @@
     class="blogPage doneByMySelf">
     <!-- <Tips /> -->
     <div
+      v-if="!loading"
       class="doneByMySelfContainer">
       <!-- 标题 -->
       <h1>
@@ -23,6 +24,7 @@
             v-for="item in getAllMiniProgram"
             :key="item.id"
             :class="['programItem', 'miniprogram', item.active ? 'programItemActive' : '']">
+            <!-- 二维码 -->
             <div
               class="programItemImg programItemShowImg">
               <i @click="changeActive(item)" class="iconfont icon-erweima"></i>
@@ -48,13 +50,18 @@
       </div>
     </div>
     <BackgroundImg
+      v-if="!loading"
       imgUrl="https://ws1.sinaimg.cn/large/006ES7aSgy1fz0as33dw4j324m2u5npd.jpg" />
+    <Loading
+      v-if="loading"
+      />
   </div>
 </template>
 
 <script>
 import BackgroundImg from '@/components/backgroundImg.vue'
 import { apiGet } from '@/utils'
+import Loading from '@/components/loading'
 
 export default {
 
@@ -62,12 +69,14 @@ export default {
 
   data () {
     return {
-      getAllMiniProgram: []
+      getAllMiniProgram: [],
+      loading: true
     }
   },
 
   components: {
-    BackgroundImg
+    BackgroundImg,
+    Loading
   },
 
   methods: {
@@ -146,7 +155,7 @@ export default {
             height: 100%;
             position: absolute;
             z-index: 2;
-            transition: all 1s;
+            transition: all 0.5s ease;
             backface-visibility: hidden;
             .pgmsg {
               position: absolute;

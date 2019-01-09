@@ -28,6 +28,11 @@ const DoneByMySelf = () => import('./views/doneByMySelf')
  */
 const NotFound = () => import('./views/404')
 
+/**
+ * 404
+ */
+const MyFriend = () => import('./views/myFriend')
+
 Vue.use(Router)
 
 let router = new Router({
@@ -80,6 +85,15 @@ let router = new Router({
         meta: {
           index: 3,
           title: '自制-D1n910的家🏠'
+        }
+      },
+      {
+        path: '/myFriend',
+        component: MyFriend,
+        name: 'myFriend',
+        meta: {
+          index: 3,
+          title: '友链-D1n910的家🏠'
         }
       },
       {
