@@ -4,6 +4,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  mounted () {
+    if (document.getElementById('loading')) {
+      document.getElementById('loading').remove()
+    }
+  }
+}
+</script>
+
 <style lang="less">
   .blogPage {
     min-height: calc(100vh - 132px);

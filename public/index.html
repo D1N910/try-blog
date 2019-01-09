@@ -12,12 +12,109 @@
       console.log('%cD1N910的家🏠', 'text-shadow:1px 1px 1px rgba(0, 0, 0,.2);font-size:40px')
       console.log('D1N910的家🏠\n版本2019年0.1版')
     </script>
+    <style>
+      .loading {
+        text-align: center;
+        height: 300px;
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+      }
+      img {
+        width: 100px;
+      }
+      .cake{animation:move 3s 0s infinite;-webkit-animation:move 3s 0s infinite;transform-origin:bottom;-webkit-transform-origin:bottom;}
+
+      @keyframes move
+      {
+          0%, 65%{
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+          }
+          70% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          75% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          80% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          85% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          90% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          95% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          100% {
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+          }
+      }
+
+      @-webkit-keyframes move
+      {
+          0%, 65%{
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+          }
+          70% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          75% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          80% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          85% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          90% {
+            -webkit-transform:rotate(6deg);
+            transform:rotate(6deg);
+          }
+          95% {
+            -webkit-transform:rotate(-6deg);
+            transform:rotate(-6deg);
+          }
+          100% {
+            -webkit-transform:rotate(0deg);
+            transform:rotate(0deg);
+          }
+      }
+    </style>
+
   </head>
   <body>
     <h1 style="display:none;">D1n910 博客</h1>
     <noscript>
       <strong>We're sorry but try-blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+
+    <div
+      id="loading"
+      class="loading cake">
+      <img src="https://ws1.sinaimg.cn/large/006ES7aSgy1fyzg4ztvnkj30f90gsq7x.jpg"  alt="这里是loading图片"/>
+      加载中吖
+    </div>
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
