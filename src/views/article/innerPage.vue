@@ -85,6 +85,7 @@ export default {
       if (res.statusCode === 200) {
         const thisData = res.content.date
         const d = new Date(thisData)
+        document.title = `${res.content.pageTitle}-文章-D1n910的家🏠`
         res.content.date = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate()
         this.articile = res.content
         this.articile.pageContent = marked(this.articile.pageContent || '', {
@@ -142,6 +143,12 @@ export default {
       line-height: 1.8;
       color: #222;
       padding-bottom: 50px;
+    }
+    @media screen and (max-width: 800px) {
+      .pageContainer {
+        width: calc(100% - 32px);
+        padding: 0 16px;
+      }
     }
   }
 </style>

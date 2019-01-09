@@ -31,4 +31,9 @@ export default {
   .bd56569 {
     background-color: #d56569;
   }
+  @media screen and (max-width: 800px) {
+    .blogPage {
+      padding-top: 88px;
+    }
+  }
 </style>

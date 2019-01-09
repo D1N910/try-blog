@@ -102,8 +102,6 @@ export default {
           for (let i in res.content) {
             i = parseInt(i)
             setTimeout(() => {
-              console.log(this.articleList)
-              console.log(parseInt(oldLength + i))
               this.articleList[parseInt(oldLength + i)].show = true
               this.$set(this.articleList, parseInt(oldLength + i), this.articleList[parseInt(oldLength + i)])
             }, i * 100)

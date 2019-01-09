@@ -17,6 +17,12 @@ const Index = () => import('./views/index')
 const Article = () => import('./views/article')
 
 const SingleArticle = () => import('./views/article/innerPage.vue')
+
+/**
+ * 自制
+ */
+const DoneByMySelf = () => import('./views/doneByMySelf')
+
 /**
  * 404
  */
@@ -46,7 +52,7 @@ let router = new Router({
         name: 'index',
         meta: {
           index: 1,
-          title: 'D1n910的🏠'
+          title: 'D1n910的家🏠'
         }
       },
       {
@@ -55,7 +61,7 @@ let router = new Router({
         name: 'article',
         meta: {
           index: 2,
-          title: '文章-D1n910的🏠'
+          title: '文章-D1n910的家🏠'
         }
       },
       {
@@ -68,12 +74,21 @@ let router = new Router({
         }
       },
       {
+        path: '/doneByMySelf',
+        component: DoneByMySelf,
+        name: 'doneByMySelf',
+        meta: {
+          index: 3,
+          title: '自制-D1n910的家🏠'
+        }
+      },
+      {
         path: '/404',
         component: NotFound,
         name: '404',
         meta: {
           index: 1,
-          title: '404-D1n910的🏠'
+          title: '404-D1n910的家🏠'
         }
       }]
     }

@@ -3,7 +3,7 @@
   <footer
     class="footer">
       <div>
-        Copyright © 2015-2018 D1N910 蛋糕
+        Copyright © 2015-{{new Date().getFullYear()}} D1N910 蛋糕
       </div>
       <div>
         <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17002625号</a>
@@ -39,7 +39,7 @@ export default {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
   position: relative;
-  z-index: 999;
+  z-index: 3;
   font-size: 14px;
   a {
     text-decoration: none;
