@@ -8,7 +8,7 @@
         <div
           class="leftContainer">
           <!-- D1n910的博客 -->
-          <img src="https://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客">
+          <img src="https://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客"> <span class="solgan">正常操作，正常分析</span>
         </div>
       </router-link>
       <nav
@@ -91,7 +91,7 @@ export default {
           icon: 'icon-chengxu'
         },
         {
-          name: '友链',
+          name: '链接',
           path: '/myFriend',
           icon: 'icon-cloud-link'
         },
@@ -153,6 +153,11 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      .solgan {
+        font-size: 14px;
+        padding-left: 8px;
+        color: rgba(0, 0, 0, 0.5);
+      }
       img {
         width: 100px;
       }
