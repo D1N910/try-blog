@@ -1,7 +1,17 @@
 * {
     margin: 0;
     padding: 0;
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        background-color: #eee;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #d56569;
+        cursor: pointer;
+    }
 }
+
 ul {
     list-style: none;
 }

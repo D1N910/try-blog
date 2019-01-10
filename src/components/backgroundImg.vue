@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bgImg">
+    :class="['bgImg', bgImgFilter ? 'bgImgFilter' : '']">
     <img :src="imgUrl" alt="图片来源http://www.polayoutu.com/collections">
   </div>
 </template>
@@ -14,6 +14,12 @@ export default {
       type: String,
       default () {
         return 'https://ws1.sinaimg.cn/large/006ES7aSgy1fyz78nng15j30zk0jkdma.jpg'
+      }
+    },
+    bgImgFilter: {
+      type: Boolean,
+      default () {
+        return false
       }
     }
   }
@@ -33,5 +39,8 @@ export default {
       height: 100%;
       object-fit: cover;
     }
+  }
+  .bgImgFilter {
+    filter: blur(13px);
   }
 </style>

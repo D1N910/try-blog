@@ -1,7 +1,7 @@
 <template>
   <a target="_blank" :href="propUrl">
     <div
-      class="cardItem">
+      :class="['cardItem', propShow ? 'cardItemShow' : '']">
       <!-- 信息 -->
       <!-- 头像 --><img class="avactor" :src="propImgUrl" alt="">
       <div
@@ -39,6 +39,14 @@ export default {
         return ''
       }
     },
+
+    propShow: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
+
     propUrl: {
       type: String,
       default () {
@@ -66,7 +74,9 @@ export default {
   margin: 10px;
   padding: 20px;
   box-shadow:inset 0 1px rgba(0,0,0,0),0 8px 16px rgba(0,0,0,0);
-  transition: all 0.5s;
+  opacity: 0;
+  transition: all 0.3s;
+  transform: translateY(40px);
   &:hover {
     box-shadow:inset 0 1px rgba(0,0,0,0.10),0 8px 16px rgba(0,0,0,0.10);
   }
@@ -88,5 +98,9 @@ export default {
     text-align: left;
     padding: 0 8px;
   }
+}
+.cardItemShow {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

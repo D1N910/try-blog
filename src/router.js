@@ -29,9 +29,14 @@ const DoneByMySelf = () => import('./views/doneByMySelf')
 const NotFound = () => import('./views/404')
 
 /**
- * 404
+ * 我的链接
  */
 const MyFriend = () => import('./views/myFriend')
+
+/**
+ * 关于我
+ */
+const AboutMe = () => import('./views/aboutMe')
 
 Vue.use(Router)
 
@@ -85,6 +90,15 @@ let router = new Router({
         meta: {
           index: 3,
           title: '自制-D1n910的家🏠'
+        }
+      },
+      {
+        path: '/aboutMe',
+        component: AboutMe,
+        name: 'aboutMe',
+        meta: {
+          index: 3,
+          title: '关于我-D1n910的家🏠'
         }
       },
       {

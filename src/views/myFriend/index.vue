@@ -15,6 +15,7 @@
         <CardItem
           v-for="(item, index) in myFriend"
           :key="index"
+          :propShow="item.show"
           :propImgUrl="item.imgUrl"
           :propUrl="item.url"
           :propTitle="item.title"
@@ -29,6 +30,7 @@
         <CardItem
           v-for="(item, index) in myLikeLink"
           :key="index"
+          :propShow="item.show"
           :propImgUrl="item.imgUrl"
           :propUrl="item.url"
           :propTitle="item.title"
@@ -77,15 +79,34 @@ export default {
   mounted () {
     apiGet('getLinks', { type: 'friend' }).then(res => {
       if (res.statusCode === 200) {
+        res.content.forEach(element => {
+          element.show = false
+        })
         this.myFriend = res.content
+        for (let i in this.myFriend) {
+          i = parseInt(i)
+          setTimeout(() => {
+            this.myFriend[i].show = true
+            this.$set(this.myFriend, parseInt(i), this.myFriend[parseInt(i)])
+          }, i * 100)
+        }
       }
     }).then(() => {
       this.loading = false
     })
     apiGet('getLinks', { type: 'likeWeb' }).then(res => {
       if (res.statusCode === 200) {
+        res.content.forEach(element => {
+          element.show = false
+        })
         this.myLikeLink = res.content
-        console.log(res.content)
+        for (let i in this.myLikeLink) {
+          i = parseInt(i)
+          setTimeout(() => {
+            this.myLikeLink[i].show = true
+            this.$set(this.myLikeLink, parseInt(i), this.myLikeLink[parseInt(i)])
+          }, i * 100)
+        }
       }
     }).then(() => {
       this.loading = false
