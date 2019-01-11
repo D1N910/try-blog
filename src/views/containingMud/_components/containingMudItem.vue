@@ -14,8 +14,8 @@
 </template>
 
 <script>
-let marked = require('marked')
-let hljs = require('highlight.js')
+const marked = require('marked')
+const hljs = require('highlight.js')
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -59,13 +59,16 @@ export default {
         return {}
       }
     }
+  },
+
+  mounted () {
   }
 }
 </script>
 
 <style lang="less" scoped>
 .cardItem {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #e3e8ec;
   border-radius: 12px;
   margin-top: 8px;
@@ -87,4 +90,5 @@ export default {
   opacity: 1;
   transform: translateY(0);
 }
+
 </style>

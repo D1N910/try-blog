@@ -4,6 +4,7 @@
     class="blogPage containingMud">
     <!-- <Tips /> -->
     <div
+      v-if="!loading"
       class="containingMudContainer">
       <h1>
         <span class="c6b2ad9">燕子衔泥,</span>
@@ -26,8 +27,15 @@
         没有更多
       </div>
     </div>
+    <!-- 背景图片 -->
     <BackgroundImg
+      v-if="loading"
       imgUrl="https://ws1.sinaimg.cn/large/006ES7aSgy1fz2phxm5idj30qp0zk42g.jpg" />
+
+    <!-- 加载 -->
+    <Loading
+      v-if="loading"
+      />
   </div>
 </template>
 
@@ -35,6 +43,7 @@
 import ContainingMudItem from './_components/containingMudItem.vue'
 import BackgroundImg from '@/components/backgroundImg.vue'
 import { apiGet } from '@/utils'
+import Loading from '@/components/loading'
 
 export default {
 
@@ -42,6 +51,7 @@ export default {
 
   data () {
     return {
+      loading: true,
       getSaidsBoth: [],
       getSaidsBothData: {
         offset: 0,
@@ -54,7 +64,8 @@ export default {
 
   components: {
     BackgroundImg,
-    ContainingMudItem
+    ContainingMudItem,
+    Loading
     // Tips
   },
 
@@ -91,6 +102,7 @@ export default {
           }
         }
       }).then(() => {
+        this.loading = false
         this.lock = false
       })
     }
