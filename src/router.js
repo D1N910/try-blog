@@ -34,6 +34,11 @@ const NotFound = () => import('./views/404')
 const MyFriend = () => import('./views/myFriend')
 
 /**
+ * 衔泥
+ */
+const ContainingMud = () => import('./views/containingMud')
+
+/**
  * 关于我
  */
 const AboutMe = () => import('./views/aboutMe')
@@ -90,6 +95,15 @@ let router = new Router({
         meta: {
           index: 3,
           title: '自制-D1n910的家🏠'
+        }
+      },
+      {
+        path: '/containingMud',
+        component: ContainingMud,
+        name: 'containingMud',
+        meta: {
+          index: 5,
+          title: '衔泥-D1n910的家🏠'
         }
       },
       {
