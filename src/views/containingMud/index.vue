@@ -27,10 +27,6 @@
         没有更多
       </div>
     </div>
-    <!-- 背景图片 -->
-    <BackgroundImg
-      v-if="loading"
-      imgUrl="https://ws1.sinaimg.cn/large/006ES7aSgy1fz2phxm5idj30qp0zk42g.jpg" />
 
     <!-- 加载 -->
     <Loading
@@ -41,7 +37,6 @@
 
 <script>
 import ContainingMudItem from './_components/containingMudItem.vue'
-import BackgroundImg from '@/components/backgroundImg.vue'
 import { apiGet } from '@/utils'
 import Loading from '@/components/loading'
 
@@ -63,7 +58,6 @@ export default {
   },
 
   components: {
-    BackgroundImg,
     ContainingMudItem,
     Loading
     // Tips
@@ -121,9 +115,8 @@ export default {
     max-width: 800px;
     margin: 0 auto;
     h1 {
-      padding: 0 16px;
+      padding: 16px;
       font-size: 28px;
-      background-color: rgba(255, 255, 255, 0.7);
     }
   }
   .nothing {
