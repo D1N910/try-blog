@@ -249,7 +249,7 @@ export default {
     display: flex;
     opacity: 1;
     .navMobileList {
-      height: 285px;
+      height: 340px;
     }
   }
 </style>

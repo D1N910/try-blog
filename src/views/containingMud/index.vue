@@ -40,6 +40,27 @@ import ContainingMudItem from './_components/containingMudItem.vue'
 import { apiGet } from '@/utils'
 import Loading from '@/components/loading'
 
+const marked = require('marked')
+const hljs = require('highlight.js')
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  highlight: function (code, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      return hljs.highlight(lang, code, true).value
+    } else {
+      return hljs.highlightAuto(code).value
+    }
+  }
+})
+
 export default {
 
   name: 'containing-mud',
@@ -74,14 +95,17 @@ export default {
       }
       apiGet('getSaidsBoth', this.getSaidsBothData).then(res => {
         if (res.statusCode === 200) {
-          console.log(res)
           const oldLength = parseInt(this.getSaidsBoth.length)
           res.content.forEach(element => {
+            element.content = marked(element.content || '', {
+              sanitize: true
+            })
             const thisData = element.createdAt
             const d = new Date(thisData)
             element.createdAt = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
             element.show = false
           })
+          console.log(res)
           this.getSaidsBoth.push(...res.content)
           for (let i in res.content) {
             i = parseInt(i)

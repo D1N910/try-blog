@@ -102,7 +102,7 @@ let router = new Router({
         component: ContainingMud,
         name: 'containingMud',
         meta: {
-          index: 5,
+          index: 3,
           title: '衔泥-D1n910的家🏠'
         }
       },

@@ -3,7 +3,7 @@
   <div
     :class="['cardItem', propData.show ? 'cardItemShow' : '']">
     <div
-      v-html="mudContent"
+      v-html="propData.content"
       class="content">
     </div>
     <div
@@ -14,43 +14,8 @@
 </template>
 
 <script>
-const marked = require('marked')
-const hljs = require('highlight.js')
-
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  highlight: function (code, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      return hljs.highlight(lang, code, true).value
-    } else {
-      return hljs.highlightAuto(code).value
-    }
-  }
-})
-
 export default {
   name: 'containing-mud-item',
-
-  data () {
-    return {
-      propShow: false
-    }
-  },
-
-  computed: {
-    mudContent () {
-      return marked(this.propData.content || '', {
-        sanitize: true
-      })
-    }
-  },
 
   props: {
     propData: {
@@ -59,9 +24,6 @@ export default {
         return {}
       }
     }
-  },
-
-  mounted () {
   }
 }
 </script>
