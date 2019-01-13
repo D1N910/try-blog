@@ -70,8 +70,7 @@
     </div>
     <BackgroundImg
       v-if="!loading"
-      :bgImgFilter="true"
-      imgUrl="https://ws1.sinaimg.cn/large/006ES7aSgy1fz1r07pb7xj31hc0x7kda.jpg" />
+      imgUrl="https://ws1.sinaimg.cn/large/006ES7aSgy1fz5alfpbzmj30zk0lmaeg.jpg" />
     <!-- <Loading
       v-if="loading"
       /> -->
@@ -137,7 +136,7 @@ export default {
   .avator {
     position: relative;
     text-align: center;
-    margin: 100px 0 0 0;
+    margin: 36px 0 0 0;
     .avatorImg {
       display:inline-block;
       overflow: hidden;
