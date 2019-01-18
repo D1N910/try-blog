@@ -32,11 +32,17 @@
     <Loading
       v-if="loading"
       />
+
+    <Gallery
+      @closeGallery="galleryShow = false"
+      :galleryImgSrc="galleryImgSrc"
+      :galleryShow="galleryShow"/>
   </div>
 </template>
 
 <script>
 import ContainingMudItem from './_components/containingMudItem.vue'
+import Gallery from './_components/gallery.vue'
 import { apiGet } from '@/utils'
 import Loading from '@/components/loading'
 
@@ -67,6 +73,8 @@ export default {
 
   data () {
     return {
+      galleryShow: false,
+      galleryImgSrc: '',
       loading: true,
       getSaidsBoth: [],
       getSaidsBothData: {
@@ -80,11 +88,18 @@ export default {
 
   components: {
     ContainingMudItem,
-    Loading
+    Loading,
+    Gallery
     // Tips
   },
 
   methods: {
+    gallery (e) {
+      this.galleryImgSrc = e
+      this.galleryShow = true
+      console.log(e)
+    },
+
     get () {
       if (this.lock) {
         return false
@@ -100,6 +115,8 @@ export default {
             element.content = marked(element.content || '', {
               sanitize: true
             })
+            const reg = new RegExp('<img', 'g')
+            element.content = element.content.replace(reg, '<img onclick="gallery(this.src)"')
             const thisData = element.createdAt
             const d = new Date(thisData)
             element.createdAt = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
@@ -128,6 +145,7 @@ export default {
 
   mounted () {
     this.get()
+    window.gallery = this.gallery
   }
 }
 </script>
