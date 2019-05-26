@@ -1,4 +1,4 @@
-<!-- 说说 子内容 -->
+<!-- 衔泥 -->
 <template>
   <div
     :class="['cardItem', propData.show ? 'cardItemShow' : '']">

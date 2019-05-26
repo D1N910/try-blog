@@ -1,7 +1,7 @@
-<!-- 博客文章 -->
+<!-- 文章内页 -->
 <template>
   <div
-    class="blogPage Article">
+    class="blogPage Article innerPage">
     <div
       v-if="!loading"
       class="pageContainer">

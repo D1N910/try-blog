@@ -1,4 +1,4 @@
-<!-- 首页 -->
+<!-- 衔泥 -->
 <template>
   <div
     class="blogPage containingMud">
@@ -160,25 +160,5 @@ export default {
       padding: 16px;
       font-size: 28px;
     }
-  }
-  .nothing {
-    position: relative;
-    z-index: 2;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: 400;
-    color: #a282d9;
-    box-shadow:inset 0 1px rgba(0,0,0,0.05),0 8px 16px rgba(0,0,0,0.05);
-    background-color: rgba(255, 255, 255, 0.7);
-    margin: 16px 0;
-  }
-  .addMore {
-    color: #a282d9;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.7);
-    &:hover {
-      color: #6b2ad9;
-    }
-    margin: 16px 0;
   }
 </style>

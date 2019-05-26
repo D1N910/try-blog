@@ -57,7 +57,7 @@
 </template>
 
 <script>
-const defaultRoute = ['index', 'article', 'containingMud', 'doneByMySelf', 'myFriend', 'aboutMe']
+const defaultRoute = ['index', 'article', 'readBook', 'containingMud', 'doneByMySelf', 'myFriend', 'aboutMe']
 
 export default {
   name: 'blog-nav',
@@ -77,10 +77,11 @@ export default {
           path: '/article',
           icon: 'icon-wenzhangzixunzhejiaoxinwendongtaitiezixianxing'
         },
-        // {
-        //   name: '设计',
-        //   path: '/design'
-        // },
+        {
+          name: '书籍',
+          path: '/readBook',
+          icon: 'icon-shu'
+        },
         {
           name: '衔泥',
           path: '/containingMud',

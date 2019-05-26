@@ -24,6 +24,11 @@ const SingleArticle = () => import('./views/article/innerPage.vue')
 const DoneByMySelf = () => import('./views/doneByMySelf')
 
 /**
+ * 书籍
+ */
+const ReadBook = () => import('./views/readBook')
+
+/**
  * 404
  */
 const NotFound = () => import('./views/404')
@@ -95,6 +100,15 @@ let router = new Router({
         meta: {
           index: 3,
           title: '自制-D1n910的家🏠'
+        }
+      },
+      {
+        path: '/readBook',
+        component: ReadBook,
+        name: 'readBook',
+        meta: {
+          index: 3,
+          title: '书籍-D1n910的家🏠'
         }
       },
       {

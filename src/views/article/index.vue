@@ -124,17 +124,6 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-  .hero {
-    position: relative;
-    z-index: 2;
-    color: #000;
-    text-shadow: 0 0.0625em 0.5em rgba(255, 255, 255,0.25);
-    height: 200px;
-    text-align: center;
-    line-height: 200px;
-    font-size: 72px;
-    font-weight: 500;
-  }
   .list {
     position: relative;
     z-index: 2;
@@ -169,23 +158,6 @@ export default {
     .lisItemShow {
       height: 92px;
       opacity: 1;
-    }
-  }
-  .nothing {
-    position: relative;
-    z-index: 2;
-    padding: 10px 0;
-    text-align: center;
-    font-weight: 400;
-    color: #fff;
-    box-shadow:inset 0 1px rgba(0,0,0,0.05),0 8px 16px rgba(0,0,0,0.05);
-  }
-  .addMore {
-    color: #a282d9;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.7);
-    &:hover {
-      color: #6b2ad9;
     }
   }
 </style>
