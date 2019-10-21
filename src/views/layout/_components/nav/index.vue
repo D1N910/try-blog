@@ -57,7 +57,8 @@
 </template>
 
 <script>
-const defaultRoute = ['index', 'article', 'readBook', 'containingMud', 'doneByMySelf', 'myFriend', 'aboutMe']
+// const defaultRoute = ['index', 'article', 'readBook', 'containingMud', 'doneByMySelf', 'myFriend', 'aboutMe']
+const defaultRoute = ['containingMud', 'aboutMe']
 
 export default {
   name: 'blog-nav',
@@ -67,36 +68,36 @@ export default {
       mobileMenuShow: true,
       activeIndex: 0,
       navUrl: [
-        {
-          name: '首页',
-          path: '/index',
-          icon: 'icon-dn'
-        },
-        {
-          name: '文章',
-          path: '/article',
-          icon: 'icon-wenzhangzixunzhejiaoxinwendongtaitiezixianxing'
-        },
-        {
-          name: '书籍',
-          path: '/readBook',
-          icon: 'icon-shu'
-        },
+        // {
+        //   name: '首页',
+        //   path: '/index',
+        //   icon: 'icon-dn'
+        // },
+        // {
+        //   name: '文章',
+        //   path: '/article',
+        //   icon: 'icon-wenzhangzixunzhejiaoxinwendongtaitiezixianxing'
+        // },
+        // {
+        //   name: '书籍',
+        //   path: '/readBook',
+        //   icon: 'icon-shu'
+        // },
         {
           name: '衔泥',
           path: '/containingMud',
           icon: 'icon-qizuibashe'
         },
-        {
-          name: '自制',
-          path: '/doneByMySelf',
-          icon: 'icon-chengxu'
-        },
-        {
-          name: '链接',
-          path: '/myFriend',
-          icon: 'icon-cloud-link'
-        },
+        // {
+        //   name: '自制',
+        //   path: '/doneByMySelf',
+        //   icon: 'icon-chengxu'
+        // },
+        // {
+        //   name: '链接',
+        //   path: '/myFriend',
+        //   icon: 'icon-cloud-link'
+        // },
         {
           name: '关于',
           path: '/aboutMe',
@@ -250,7 +251,8 @@ export default {
     display: flex;
     opacity: 1;
     .navMobileList {
-      height: 340px;
+      height: 120px;
+      width: 120px;
     }
   }
 </style>

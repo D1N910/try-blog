@@ -97,7 +97,6 @@ export default {
     gallery (e) {
       this.galleryImgSrc = e
       this.galleryShow = true
-      console.log(e)
     },
 
     get () {
@@ -122,7 +121,6 @@ export default {
             element.createdAt = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
             element.show = false
           })
-          console.log(res)
           this.getSaidsBoth.push(...res.content)
           for (let i in res.content) {
             i = parseInt(i)
