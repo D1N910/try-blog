@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 let api = '/api/'
 if (process.env.NODE_ENV === 'development') {
   api = 'http://localhost:3000/'
-  api = 'https://www.d1n910.cn/api/'
+  api = 'https://www.d1n910.com/api/'
 }
 axios.defaults.baseURL = api
 

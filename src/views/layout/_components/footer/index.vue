@@ -6,7 +6,7 @@
         Copyright © 2015-{{new Date().getFullYear()}} D1N910 蛋糕
       </div>
       <div>
-        <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备17002625号</a>
+        <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备20008011号</a>
       </div>
   </footer>
 </template>
