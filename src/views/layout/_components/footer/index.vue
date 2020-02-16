@@ -13,7 +13,8 @@
         <a
           v-for="(item, index) in myFriend"
           :key="`friend_${index}`"
-          href="item.url"
+          :href="item.url"
+          target="_blank"
         >
           {{ item.title }}✨
         </a>
