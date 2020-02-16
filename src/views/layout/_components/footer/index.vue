@@ -40,7 +40,6 @@ export default {
           element.show = false
         })
         this.myFriend = res.content
-        console.log(this.myFriend)
       }
     }).then(() => {
       this.loading = false
