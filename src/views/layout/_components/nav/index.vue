@@ -8,7 +8,7 @@
         <div
           class="leftContainer">
           <!-- D1n910的博客 -->
-          <img src="https://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客"> <span class="solgan">正常操作，正常分析</span>
+          <img src="https://ww1.sinaimg.cn/large/006ES7aSgy1fyw7egmfhzj30jg05kweq.jpg" alt="D1n910的博客"> <span class="solgan">正常操作分析，友好待人</span>
         </div>
       </router-link>
       <nav

@@ -41,7 +41,7 @@
     <div
       v-if="!haveFull"
       @click="get()"
-      class="nothing addMore">
+      class="nothing add-more">
       加载更多
     </div>
 

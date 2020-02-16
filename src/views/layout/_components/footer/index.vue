@@ -6,24 +6,45 @@
         Copyright © 2015-{{new Date().getFullYear()}} D1N910 蛋糕
       </div>
       <div>
-        <a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">粤ICP备20008011号</a>
+        <a href="http://beian.miit.gov.cn" target="_blank">粤ICP备20008011号</a>
+      </div>
+      <div>
+        友情链接:
+        <a
+          v-for="(item, index) in myFriend"
+          :key="`friend_${index}`"
+          href="item.url"
+        >
+          {{ item.title }}✨
+        </a>
       </div>
   </footer>
 </template>
 
 <script>
+import { apiGet } from '@/utils'
+
 export default {
   name: 'blog-footer',
 
   data () {
     return {
+      myFriend: []
     }
   },
 
-  components: {
-  },
-
-  methods: {
+  mounted () {
+    apiGet('getLinks', { type: 'friend' }).then(res => {
+      if (res.statusCode === 200) {
+        res.content.forEach(element => {
+          element.show = false
+        })
+        this.myFriend = res.content
+        console.log(this.myFriend)
+      }
+    }).then(() => {
+      this.loading = false
+    })
   }
 }
 </script>
@@ -31,7 +52,6 @@ export default {
 <style lang="less" rel="stylesheet/less" scoped>
 .footer {
   text-align: center;
-  height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,6 +61,7 @@ export default {
   position: relative;
   z-index: 3;
   font-size: 14px;
+  padding: 16px 0;
   a {
     text-decoration: none;
     color: #6b2ad9;
@@ -49,5 +70,6 @@ export default {
   a:hover {
     color: #d56569;
   }
+
 }
 </style>
