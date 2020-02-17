@@ -13,6 +13,24 @@
       </h1>
 
       <!-- 现有的表情包 -->
+      <ul
+        class="emoji-ul"
+      >
+        <li
+          v-for="(item, index) in emojiList"
+          :key="`emojiList_${index}`"
+        >
+          <img :src="item" :alt="index" class="emoji"/>
+          <span>{{ index }}</span>
+        </li>
+        <li
+          v-for="(item, index) in smallImgFaceList"
+          :key="`emojiList_${index}`"
+        >
+          <img :src="item" :alt="index" class="emoji small_img_face"/>
+          <span>{{ index }}</span>
+        </li>
+      </ul>
 
       <ContainingMudItem
         v-for="item in getSaidsBoth"
@@ -198,6 +216,24 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
+  .emoji-ul {
+    display: flex;
+    align-items: baseline;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 1px dashed #000;
+      border-radius: 10px;
+      padding: 8px 16px;
+      margin: 8px;
+      span {
+        font-size: 12px;
+        opacity: 0.75;
+      }
+    }
+  }
   .containing-mud-container {
     position: relative;
     z-index: 2;
