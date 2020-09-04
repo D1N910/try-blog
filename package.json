@@ -11,7 +11,7 @@
     "axios": "^0.18.0",
     "console.img": "^2.2.0",
     "highlight.js": "^9.13.1",
-    "marked": "^0.6.0",
+    "marked": "^0.7.0",
     "vue": "^2.5.21",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
